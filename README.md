@@ -2,6 +2,28 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Content
+This is ###WeatherInn, a spa about weather in the country
+This proyect has two branches: master and develop. **master** contains the realise of the application and **develop** contains the test of the use cases.
+
+## Demo
+If you want to see the demo of this proyect deployed, you can visit [Demo of the proyect](https://germanps.com/)
+
+## Dependencies
+If you have special requirements, you have to list it step by step.
+* This project requires @elastic/eui
+* Also need @elastic/eui @elastic/datemath moment prop-types
+* react-router-dom
+* react-toastify
+* graphql 
+* jwt-decode 
+* apollo-client
+* node-sass
+* formik
+* yup
+* lodash
+* Install all dependencies by yarn
+
 ## Available Scripts
 
 In the project directory, you can run:
