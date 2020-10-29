@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import {
+  EuiButton,
+  EuiFlexItem
+} from '@elastic/eui';
 
-function App() {
+export default function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+      <h1>App.js</h1>
+      <p>Teting elastic UI...</p>
+      <EuiFlexItem grow={false}>
+        <EuiButton
+          color="secondary"
+          fill onClick={() => { console.log('click!!'); }}
         >
-          Learn React
-        </a>
-      </header>
+          Primary
+          </EuiButton>
+      </EuiFlexItem>
     </div>
   );
 }
-
-export default App;
