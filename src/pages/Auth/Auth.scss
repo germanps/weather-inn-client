@@ -1,8 +1,6 @@
 @import "../../scss/index.scss";
 
 .auth{
-    //@include flex(100%, row, center, center);
-    height: 100vh;
     background-color: $background-grey-light;
     .euiPageBody{
         @include flex(100%, column, center, center);
@@ -30,7 +28,7 @@
             }
         }
         .change-to-register{
-            background-color: $background-light;
+            //background-color: $background-light;
             padding: 1rem 2rem;
             text-align: center;
             font-size: $font-size * .8;
