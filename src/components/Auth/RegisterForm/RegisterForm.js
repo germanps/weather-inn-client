@@ -10,6 +10,7 @@ import { useFormik } from 'formik'
 import * as Yup from 'yup'
 import { useMutation } from '@apollo/client'
 import { REGISTER } from '../../../gql/user'
+import PropTypes from 'prop-types';
 import "./RegisterForm.scss"
 
 export default function RegisterForm(props) {
@@ -34,9 +35,10 @@ export default function RegisterForm(props) {
                         input: newUser,
                     }
                 })
+                setShowLogin(true);
                 console.log(result);
             } catch (error) {
-                console.log(error.message)
+                console.log(error)
             }
         }
     })
@@ -116,4 +118,8 @@ function initialFormValues() {
         password: "",
         repeatPassword: "",
     }
-} 
+}
+
+RegisterForm.propTypes = {
+    setShowLogin: PropTypes.func
+}

@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { ApolloProvider } from "@apollo/client";
-import client from "./config/apollo";
+import React, { useState } from 'react'
+import { ApolloProvider } from "@apollo/client"
+import client from "./config/apollo"
 import Auth from './pages/Auth'
 import './App.scss';
 
