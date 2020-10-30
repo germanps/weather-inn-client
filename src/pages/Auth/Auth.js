@@ -25,7 +25,6 @@ export default function Auth() {
                 <h1 className="title-logo">
                     <EuiImage
                         size="s"
-                        hasShadow
                         alt="logo weather-inn"
                         url={logo}
                     />

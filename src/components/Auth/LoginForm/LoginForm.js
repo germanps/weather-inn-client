@@ -7,12 +7,16 @@ import {
     EuiFieldPassword,
 } from '@elastic/eui'
 import { useFormik } from 'formik'
+import * as Yup from 'yup'
 import "./LoginForm.scss"
 
 export default function LoginForm() {
     const formik = useFormik({
         initialValues: initialFormValues(),
-        validationSchema: null,
+        validationSchema: Yup.object({
+            email: Yup.string().email().required(true),
+            password: Yup.string().required(true),
+        }),
         onSubmit: (formData) => {
             console.log(formData);
         }
@@ -28,7 +32,7 @@ export default function LoginForm() {
                         onChange={formik.handleChange}
                         autoComplete="off"
                         value={formik.values.email}
-                        isInvalid={formik.errors.email && true}
+                        isInvalid={formik.errors.email}
                     />
                 </EuiFormRow>
                 <EuiFormRow helpText="Ingresar contraseña de usuario">
@@ -38,7 +42,7 @@ export default function LoginForm() {
                         onChange={formik.handleChange}
                         autoComplete="off"
                         value={formik.values.password}
-                        isInvalid={formik.errors.password && true}
+                        isInvalid={formik.errors.password}
                     />
                 </EuiFormRow>
                 <EuiButton
