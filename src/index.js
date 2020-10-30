@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import '@elastic/eui/dist/eui_theme_light.css';
-import './index.css';
+import './index.scss';
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
