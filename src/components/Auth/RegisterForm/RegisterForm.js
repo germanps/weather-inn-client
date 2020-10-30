@@ -5,9 +5,9 @@ import {
     EuiForm,
     EuiFormRow,
     EuiFieldPassword,
-
 } from '@elastic/eui';
 import { useFormik } from 'formik'
+import * as Yup from 'yup'
 import "./RegisterForm.scss"
 
 export default function RegisterForm(props) {
@@ -15,7 +15,12 @@ export default function RegisterForm(props) {
 
     const formik = useFormik({
         initialValues: initialFormValues(),
-        validationSchema: null,
+        validationSchema: Yup.object({
+            name: Yup.string().required(true),
+            email: Yup.string().email().required(true),
+            password: Yup.string().required(true).oneOf([Yup.ref("repeatPassword")], "Las contraseñas no coinciden"),
+            repeatPassword: Yup.string().required(true).oneOf([Yup.ref("password")], "Las contraseñas no coinciden"),
+        }),
         onSubmit: (formValues) => {
             console.log(formValues);
         }
@@ -32,6 +37,8 @@ export default function RegisterForm(props) {
                         name="name"
                         onChange={formik.handleChange}
                         autoComplete="off"
+                        value={formik.values.name}
+                        isInvalid={formik.errors.name && true}
                     />
                 </EuiFormRow>
                 <EuiFormRow helpText="Ingresar email">
@@ -40,6 +47,8 @@ export default function RegisterForm(props) {
                         name="email"
                         onChange={formik.handleChange}
                         autoComplete="off"
+                        value={formik.values.email}
+                        isInvalid={formik.errors.email && true}
                     />
                 </EuiFormRow>
                 <EuiFormRow helpText="Ingresar contraseña de usuario">
@@ -48,6 +57,8 @@ export default function RegisterForm(props) {
                         name="password"
                         onChange={formik.handleChange}
                         autoComplete="off"
+                        value={formik.values.password}
+                        isInvalid={formik.errors.password && true}
                     />
                 </EuiFormRow>
                 <EuiFormRow helpText="Repetir contraseña de usuario">
@@ -56,6 +67,8 @@ export default function RegisterForm(props) {
                         name="repeatPassword"
                         onChange={formik.handleChange}
                         autoComplete="off"
+                        value={formik.values.repeatPassword}
+                        isInvalid={formik.errors.repeatPassword && true}
                     />
                 </EuiFormRow>
                 <EuiButton
@@ -64,6 +77,7 @@ export default function RegisterForm(props) {
                 >
                     Login
                 </EuiButton>
+
             </EuiForm>
         </div>
     )
