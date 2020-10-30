@@ -102,7 +102,7 @@ export default function RegisterForm(props) {
                     type="submit"
                     fill
                 >
-                    Login
+                    Registrarse
                 </EuiButton>
 
             </EuiForm>

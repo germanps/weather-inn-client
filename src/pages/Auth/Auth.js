@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import RegisterForm from '../../components/Auth/RegisterForm'
+import LoginForm from '../../components/Auth/LoginForm'
 import logo from '../../assets/png/weather_inn-logo.png'
 import {
     EuiPage,
@@ -33,14 +34,14 @@ export default function Auth() {
                     <EuiPageContentHeader>
                         <EuiPageContentHeaderSection>
                             <EuiTitle>
-                                <h2>Weather Inn</h2>
+                                <h2>Weather Inn  <span>Take the weather!</span></h2>
                             </EuiTitle>
                         </EuiPageContentHeaderSection>
                     </EuiPageContentHeader>
                     <EuiPageContentBody>
 
 
-                        {showLogin ? <p>Formulario de login</p> : <RegisterForm setShowLogin={setShowLogin} />}
+                        {showLogin ? <LoginForm /> : <RegisterForm setShowLogin={setShowLogin} />}
 
 
 
