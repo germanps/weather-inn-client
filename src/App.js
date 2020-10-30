@@ -1,27 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ApolloProvider } from "@apollo/client";
 import client from "./config/apollo";
+import Auth from './pages/Auth'
 import './App.scss';
-import {
-  EuiButton,
-  EuiFlexItem
-} from '@elastic/eui';
+
 
 export default function App() {
+
+  const [auth, setAuth] = useState(undefined)
+
   return (
     <ApolloProvider client={client}>
-      <div className="App">
-        <h1>App.js</h1>
-        <p>Teting elastic UI...</p>
-        <EuiFlexItem grow={false}>
-          <EuiButton
-            color="secondary"
-            fill onClick={() => { console.log('click!!'); }}
-          >
-            Primary
-            </EuiButton>
-        </EuiFlexItem>
-      </div>
+      {!auth ? <Auth /> : <h1>Estas logeado</h1>}
     </ApolloProvider>
   );
 }
