@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import "./Auth.scss"
+import RegisterForm from '../../components/Auth/RegisterForm'
 import logo from '../../assets/png/weather_inn-logo.png'
 import {
     EuiPage,
@@ -11,6 +11,7 @@ import {
     EuiTitle,
     EuiImage,
 } from '@elastic/eui';
+import "./Auth.scss"
 
 
 
@@ -38,9 +39,9 @@ export default function Auth() {
                     </EuiPageContentHeader>
                     <EuiPageContentBody>
 
-                        <div>
-                            {showLogin ? <p>Formulario de login</p> : <p>Formulario de registro</p>}
-                        </div>
+
+                        {showLogin ? <p>Formulario de login</p> : <RegisterForm setShowLogin={setShowLogin} />}
+
 
 
 

@@ -21,6 +21,11 @@
                 .euiPageContentHeaderSection{
                     text-align: center;
                     max-width: 100%;
+                    .euiTitle{
+                        font-size: $font-size * 1.2;
+                        line-height: 0;
+                        font-weight: bold;
+                    }
                 }
             }
         }
