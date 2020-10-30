@@ -8,21 +8,36 @@ import {
 } from '@elastic/eui';
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
+import { useMutation } from '@apollo/client'
+import { REGISTER } from '../../../gql/user'
 import "./RegisterForm.scss"
 
 export default function RegisterForm(props) {
-    const { setShowLogin } = props;
+    const { setShowLogin } = props
+    const [register] = useMutation(REGISTER)
 
     const formik = useFormik({
         initialValues: initialFormValues(),
         validationSchema: Yup.object({
             name: Yup.string().required(true),
+            username: Yup.string().required(true),
             email: Yup.string().email().required(true),
             password: Yup.string().required(true).oneOf([Yup.ref("repeatPassword")], "Las contraseñas no coinciden"),
             repeatPassword: Yup.string().required(true).oneOf([Yup.ref("password")], "Las contraseñas no coinciden"),
         }),
-        onSubmit: (formValues) => {
-            console.log(formValues);
+        onSubmit: async (formData) => {
+            try {
+                const newUser = formData
+                delete newUser.repeatPassword
+                const result = await register({
+                    variables: {
+                        input: newUser,
+                    }
+                })
+                console.log(result);
+            } catch (error) {
+                console.log(error.message)
+            }
         }
     })
 
@@ -39,6 +54,16 @@ export default function RegisterForm(props) {
                         autoComplete="off"
                         value={formik.values.name}
                         isInvalid={formik.errors.name && true}
+                    />
+                </EuiFormRow>
+                <EuiFormRow helpText="Ingresar username">
+                    <EuiFieldText
+                        placeholder="Nickname"
+                        name="username"
+                        onChange={formik.handleChange}
+                        autoComplete="off"
+                        value={formik.values.username}
+                        isInvalid={formik.errors.username && true}
                     />
                 </EuiFormRow>
                 <EuiFormRow helpText="Ingresar email">
@@ -86,8 +111,9 @@ export default function RegisterForm(props) {
 function initialFormValues() {
     return {
         name: "",
+        username: "",
         email: "",
         password: "",
         repeatPassword: "",
     }
-}
+} 
