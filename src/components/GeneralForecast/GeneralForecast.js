@@ -1,6 +1,5 @@
 import React from 'react'
-import { EuiText, EuiFlexGroup, EuiFlexItem, EuiSpacer } from '@elastic/eui'
-import { getDay } from '../../utils/utils'
+import { EuiFlexGroup, EuiFlexItem, EuiSpacer } from '@elastic/eui'
 import PropTypes from 'prop-types'
 import './GeneralForecast.scss'
 
