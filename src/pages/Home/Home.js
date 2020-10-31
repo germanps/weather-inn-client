@@ -7,7 +7,8 @@ export default function Home() {
     console.log(auth);
     return (
         <div>
-            estamos en la home
+            <h2>Menu</h2>
+            <p>Home...</p>
         </div>
     )
 }

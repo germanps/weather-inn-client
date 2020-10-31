@@ -2,10 +2,10 @@ import React, { useEffect, useState, useMemo } from 'react'
 import { ApolloProvider } from "@apollo/client"
 import client from "./config/apollo"
 import Auth from './pages/Auth'
-import Home from './pages/Home'
+import Navigation from './routes/Navigation'
 import AuthContext from './context/AuthContext'
 import { getToken } from './utils/token'
-import './App.scss';
+
 
 
 export default function App() {
@@ -35,7 +35,7 @@ export default function App() {
   return (
     <ApolloProvider client={client}>
       <AuthContext.Provider value={authData}>
-        {!auth ? <Auth /> : <Home />}
+        {!auth ? <Auth /> : <Navigation />}
       </AuthContext.Provider>
     </ApolloProvider>
   );
