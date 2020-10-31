@@ -6,9 +6,6 @@ import {
     EuiPageBody,
     EuiPageContent,
     EuiPageContentBody,
-    EuiPageContentHeader,
-    EuiPageContentHeaderSection,
-    EuiTitle,
 } from '@elastic/eui';
 
 export default function LayoutBasic(props) {

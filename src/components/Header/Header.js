@@ -1,11 +1,11 @@
 import React from 'react'
 import logo from '../../assets/png/weather_inn-logo.png'
+
 import './Header.scss'
 import {
     EuiHeader,
     EuiHeaderSectionItem,
     EuiHeaderLinks,
-    EuiHeaderLink,
     EuiImage,
 } from '@elastic/eui';
 
@@ -25,7 +25,7 @@ export default function Header() {
 
             <EuiHeaderSectionItem>
                 <EuiHeaderLinks aria-label="App navigation links example">
-                    <EuiHeaderLink isActive>Configuración</EuiHeaderLink>
+                    <span>Usuario: </span>
                 </EuiHeaderLinks>
             </EuiHeaderSectionItem>
         </EuiHeader>
