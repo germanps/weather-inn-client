@@ -1,5 +1,10 @@
 @import '../../scss/index.scss';
 
 .home{
-    
+
+    .title{
+        font-size: $font-size;
+        line-height: 16px;
+        font-weight: bold;
+    }
 }

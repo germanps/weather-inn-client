@@ -13,7 +13,7 @@ import {
 
 export default function Header() {
     const { auth } = useAuth()
-    console.log(auth);
+    //console.log(auth);
     return (
         <EuiHeader className="header">
             <EuiHeaderSectionItem border="right">

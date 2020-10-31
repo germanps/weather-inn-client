@@ -1,0 +1,18 @@
+@import '../../scss/index.scss';
+
+.general-forecast{
+
+    &__column{
+
+        .subtitle{
+            color: $action;
+            margin-bottom: .5rem;
+            font-size: $font-size * .9;
+            font-weight: bold;
+        }
+        .text{
+            font-size: $font-size * .7;
+            line-height: 16px;
+        }
+    }
+}
