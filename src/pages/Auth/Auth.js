@@ -52,13 +52,13 @@ export default function Auth() {
 
                     {showLogin ? (
                         <>
-                            <p>¿No tienes cuenta?</p>
-                            <span onClick={() => setShowLogin(!showLogin)}>Registrarse</span>
+                            <p className="change-to-register__info">¿No tienes cuenta?</p>
+                            <span className="change-to-register__goto" onClick={() => setShowLogin(!showLogin)}>Registrarse</span>
                         </>
                     ) : (
                             <>
-                                <p>¡Entra con tu cuenta!</p>
-                                <span onClick={() => setShowLogin(!showLogin)}>Iniciar sesión</span>
+                                <p className="change-to-register__info">¡Entra con tu cuenta!</p>
+                                <span className="change-to-register__goto" onClick={() => setShowLogin(!showLogin)}>Iniciar sesión</span>
                             </>
                         )}
                 </div>
