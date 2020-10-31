@@ -54,7 +54,7 @@ export default function RegisterForm(props) {
                         name="name"
                         onChange={formik.handleChange}
                         autoComplete="off"
-                        value={formik.values.name}
+                        value={formik.values.name || ''}
                         isInvalid={formik.errors.name && true}
                     />
                 </EuiFormRow>
@@ -64,7 +64,7 @@ export default function RegisterForm(props) {
                         name="username"
                         onChange={formik.handleChange}
                         autoComplete="off"
-                        value={formik.values.username}
+                        value={formik.values.username || ''}
                         isInvalid={formik.errors.username && true}
                     />
                 </EuiFormRow>
@@ -74,7 +74,7 @@ export default function RegisterForm(props) {
                         name="email"
                         onChange={formik.handleChange}
                         autoComplete="off"
-                        value={formik.values.email}
+                        value={formik.values.email || ''}
                         isInvalid={formik.errors.email && true}
                     />
                 </EuiFormRow>
@@ -84,7 +84,7 @@ export default function RegisterForm(props) {
                         name="password"
                         onChange={formik.handleChange}
                         autoComplete="off"
-                        value={formik.values.password}
+                        value={formik.values.password || ''}
                         isInvalid={formik.errors.password && true}
                     />
                 </EuiFormRow>
@@ -94,7 +94,7 @@ export default function RegisterForm(props) {
                         name="repeatPassword"
                         onChange={formik.handleChange}
                         autoComplete="off"
-                        value={formik.values.repeatPassword}
+                        value={formik.values.repeatPassword || ''}
                         isInvalid={formik.errors.repeatPassword && true}
                     />
                 </EuiFormRow>
