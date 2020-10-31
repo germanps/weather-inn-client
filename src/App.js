@@ -32,6 +32,9 @@ export default function App() {
     }), [auth]
   )
 
+  //avoid render when auth does not exists
+  if (auth === undefined) return null
+
   return (
     <ApolloProvider client={client}>
       <AuthContext.Provider value={authData}>
