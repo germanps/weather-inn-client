@@ -8,6 +8,7 @@ import {
 } from '@elastic/eui'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
+import { decodeToken } from '../../../utils/token'
 import { useMutation } from '@apollo/client'
 import { LOGIN } from '../../../gql/user'
 import { setToken } from '../../../utils/token'
@@ -38,8 +39,11 @@ export default function LoginForm() {
                     }
                 })
                 const { token } = data.login
+                //set token in localStorage
                 setToken(token)
-                setUser(token)//redirect to home
+
+                //set token in global context && redirect to home with user data from database
+                setUser(decodeToken(token))
             } catch (error) {
                 setError(error.message)
             }

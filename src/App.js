@@ -2,6 +2,7 @@ import React, { useEffect, useState, useMemo } from 'react'
 import { ApolloProvider } from "@apollo/client"
 import client from "./config/apollo"
 import Auth from './pages/Auth'
+import Home from './pages/Home'
 import AuthContext from './context/AuthContext'
 import { getToken } from './utils/token'
 import './App.scss';
@@ -34,7 +35,7 @@ export default function App() {
   return (
     <ApolloProvider client={client}>
       <AuthContext.Provider value={authData}>
-        {!auth ? <Auth /> : <h1>Estas logeado</h1>}
+        {!auth ? <Auth /> : <Home />}
       </AuthContext.Provider>
     </ApolloProvider>
   );
