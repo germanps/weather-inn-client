@@ -12,3 +12,9 @@ code {
     monospace;
 }
 
+//Form globals
+.submit-error{
+  color: $danger;
+  margin-top: 1rem;
+  font-size: $font-size * .8;
+}

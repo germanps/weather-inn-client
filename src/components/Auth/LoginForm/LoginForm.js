@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
     EuiButton,
     EuiFieldText,
@@ -8,17 +8,33 @@ import {
 } from '@elastic/eui'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
+import { useMutation } from '@apollo/client'
+import { LOGIN } from '../../../gql/user'
 import "./LoginForm.scss"
 
 export default function LoginForm() {
+    const [error, setError] = useState('')
+    const [login] = useMutation(LOGIN)
+
     const formik = useFormik({
         initialValues: initialFormValues(),
         validationSchema: Yup.object({
             email: Yup.string().email().required(true),
             password: Yup.string().required(true),
         }),
-        onSubmit: (formData) => {
-            console.log(formData);
+        onSubmit: async (formData) => {
+            setError('')//only render one time as performance
+            //call to mutation to get user token
+            try {
+                const { data } = await login({
+                    variables: {
+                        input: formData
+                    }
+                })
+                console.log(data)
+            } catch (error) {
+                setError(error.message)
+            }
         }
     })
     return (
@@ -32,7 +48,7 @@ export default function LoginForm() {
                         onChange={formik.handleChange}
                         autoComplete="off"
                         value={formik.values.email}
-                        isInvalid={formik.errors.email}
+                        isInvalid={formik.errors.email && true}
                     />
                 </EuiFormRow>
                 <EuiFormRow helpText="Ingresar contraseña de usuario">
@@ -42,7 +58,7 @@ export default function LoginForm() {
                         onChange={formik.handleChange}
                         autoComplete="off"
                         value={formik.values.password}
-                        isInvalid={formik.errors.password}
+                        isInvalid={formik.errors.password && true}
                     />
                 </EuiFormRow>
                 <EuiButton
@@ -51,6 +67,7 @@ export default function LoginForm() {
                 >
                     Login
                 </EuiButton>
+                {error && <p className="submit-error">{error}</p>}
             </EuiForm>
         </div>
     )
