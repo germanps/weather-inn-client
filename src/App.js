@@ -4,7 +4,7 @@ import client from "./config/apollo"
 import Auth from './pages/Auth'
 import Navigation from './routes/Navigation'
 import AuthContext from './context/AuthContext'
-import { getToken } from './utils/token'
+import { getToken, decodeToken } from './utils/token'
 
 
 
@@ -15,7 +15,7 @@ export default function App() {
     //if userToken is set redirect to home page
     const token = getToken()
     if (!token) setAuth(null)
-    else setAuth(token)
+    else setAuth(decodeToken(token))
   }, [])
 
   const logout = () => {
