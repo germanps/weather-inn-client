@@ -1,27 +1,42 @@
-import React from 'react';
-import { ApolloProvider } from "@apollo/client";
-import client from "./config/apollo";
+import React, { useEffect, useState, useMemo } from 'react'
+import { ApolloProvider } from "@apollo/client"
+import client from "./config/apollo"
+import Auth from './pages/Auth'
+import Home from './pages/Home'
+import AuthContext from './context/AuthContext'
+import { getToken } from './utils/token'
 import './App.scss';
-import {
-  EuiButton,
-  EuiFlexItem
-} from '@elastic/eui';
+
 
 export default function App() {
+  const [auth, setAuth] = useState(undefined)
+
+  useEffect(() => {
+    //if userToken is set redirect to home page
+    const token = getToken()
+    if (!token) setAuth(null)
+    else setAuth(token)
+  }, [])
+
+  const logout = () => {
+    console.log('cerrar sesión')
+  }
+
+  const setUser = user => setAuth(user)
+  //avoid new render with useMemo
+  const authData = useMemo(
+    () => ({
+      auth,
+      logout,
+      setUser
+    }), [auth]
+  )
+
   return (
     <ApolloProvider client={client}>
-      <div className="App">
-        <h1>App.js</h1>
-        <p>Teting elastic UI...</p>
-        <EuiFlexItem grow={false}>
-          <EuiButton
-            color="secondary"
-            fill onClick={() => { console.log('click!!'); }}
-          >
-            Primary
-            </EuiButton>
-        </EuiFlexItem>
-      </div>
+      <AuthContext.Provider value={authData}>
+        {!auth ? <Auth /> : <Home />}
+      </AuthContext.Provider>
     </ApolloProvider>
   );
 }
