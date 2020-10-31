@@ -1,4 +1,5 @@
 import React from 'react'
+import Header from '../components/Header'
 import './LayoutBasic.scss'
 import {
     EuiPage,
@@ -14,9 +15,7 @@ export default function LayoutBasic(props) {
     const { children } = props
     return (
         <>
-            <header>
-                <h1>HEADER</h1>
-            </header>
+            <Header />
             <EuiPage>
                 <EuiPageBody component="div">
                     <EuiPageContent>

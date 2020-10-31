@@ -1,0 +1,16 @@
+@import "../../scss/index.scss";
+
+.header{
+    min-height: 65px;
+    padding: 0 1rem;
+    .euiHeaderSectionItem--borderRight {
+
+        .title-logo{
+
+        }
+
+        &::after{
+            width: 0;
+        }
+    }
+}
