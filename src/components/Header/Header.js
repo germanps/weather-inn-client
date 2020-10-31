@@ -7,6 +7,7 @@ import './Header.scss'
 import {
     EuiHeader,
     EuiHeaderSectionItem,
+    EuiHeaderLinks,
     EuiImage,
 } from '@elastic/eui';
 
@@ -16,7 +17,6 @@ export default function Header() {
     return (
         <EuiHeader className="header">
             <EuiHeaderSectionItem border="right">
-
                 <h1 className="title-logo">
                     <Link to="/">
                         <EuiImage
@@ -25,19 +25,18 @@ export default function Header() {
                             url={logo}
                         />
                     </Link>
-                        Weather Inn
-                    </h1>
-
+                    Weather Inn
+                </h1>
             </EuiHeaderSectionItem>
 
             <EuiHeaderSectionItem>
+                <EuiHeaderLinks aria-label="App navigation links example">
 
-                <span>Usuario:
                     <Link to={`/${auth.username}`}>
                         {auth.username}
                     </Link>
-                </span>
 
+                </EuiHeaderLinks>
             </EuiHeaderSectionItem>
         </EuiHeader>
     )

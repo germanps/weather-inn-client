@@ -18,3 +18,9 @@ code {
   margin-top: 1rem;
   font-size: $font-size * .8;
 }
+
+
+//popup mobile menu
+.euiPopover__panel.euiPopover__panel-isOpen{
+  padding: .5rem;
+}
