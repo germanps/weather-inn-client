@@ -17,7 +17,7 @@ import "./Auth.scss"
 
 
 export default function Auth() {
-    const [showLogin, setShowLogin] = useState(false);
+    const [showLogin, setShowLogin] = useState(true);
 
     return (
         <EuiPage className="auth">

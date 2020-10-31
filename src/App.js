@@ -2,10 +2,10 @@ import React, { useEffect, useState, useMemo } from 'react'
 import { ApolloProvider } from "@apollo/client"
 import client from "./config/apollo"
 import Auth from './pages/Auth'
-import Home from './pages/Home'
+import Navigation from './routes/Navigation'
 import AuthContext from './context/AuthContext'
-import { getToken } from './utils/token'
-import './App.scss';
+import { getToken, decodeToken } from './utils/token'
+
 
 
 export default function App() {
@@ -15,7 +15,7 @@ export default function App() {
     //if userToken is set redirect to home page
     const token = getToken()
     if (!token) setAuth(null)
-    else setAuth(token)
+    else setAuth(decodeToken(token))
   }, [])
 
   const logout = () => {
@@ -35,7 +35,7 @@ export default function App() {
   return (
     <ApolloProvider client={client}>
       <AuthContext.Provider value={authData}>
-        {!auth ? <Auth /> : <Home />}
+        {!auth ? <Auth /> : <Navigation />}
       </AuthContext.Provider>
     </ApolloProvider>
   );
