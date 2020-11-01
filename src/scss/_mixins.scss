@@ -7,9 +7,10 @@
     flex-wrap: $wr;
 }
   
-@mixin subTitle($size, $color, $align, $mb){
+@mixin subTitle($size, $color, $align, $mb, $weigth){
     font-size: $size;
     color: $color;
     text-align: $align;
     margin-bottom: $mb;
+    font-weight: $weigth;
 }

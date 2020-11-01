@@ -1,0 +1,10 @@
+@import "../../scss/index.scss";
+
+.weather-search{
+    
+    &__column{
+        .subtitle{
+            @include subTitle($font-size * .9, $action, left, .5rem, bold)
+        }
+    }
+}

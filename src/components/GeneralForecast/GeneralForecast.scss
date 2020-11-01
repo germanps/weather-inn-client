@@ -5,10 +5,7 @@
     &__column{
 
         .subtitle{
-            color: $action;
-            margin-bottom: .5rem;
-            font-size: $font-size * .9;
-            font-weight: bold;
+            @include subTitle($font-size * .9, $action, left, .5rem, bold)
         }
         .text{
             font-size: $font-size * .7;
