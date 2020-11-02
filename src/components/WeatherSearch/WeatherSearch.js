@@ -1,30 +1,14 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import ResultCard from '../ResultCard'
 import { useFetch } from '../../hooks/useFetch'
 import { EuiFlexGroup, EuiFlexItem, EuiSpacer, EuiComboBox } from '@elastic/eui'
 import './WeatherSearch.scss'
-
 let cities = []
-// const allOptionsStatic = [
-//     {
-//         label: 'Barcelona',
-//     },
-//     {
-//         label: 'Girona',
-//     },
-//     {
-//         label: 'Lleida',
-//     },
-//     {
-//         label: 'Tarragona',
-//     }
-// ];
 
 export default function WeatherSearch() {
-
     const { loading, data } = useFetch('municipios')
     if (!loading) {
         cities = data
-        console.log(cities)
     }
 
     const [allOptions, setAllOptions] = useState([]);
@@ -36,30 +20,28 @@ export default function WeatherSearch() {
         setSelected(selectedOptions);
     };
 
+
     //Modify objects to keep shape required in Elastic ComboBox
     const modifyStates = () => {
-        console.log('modifyStates');
-        //debugger
+        //console.log('modifyStates', cities.length);
         if (cities) {
             let obj = []
             cities.forEach(el => {
+                const idCity = el.CODIGOINE.substring(0, 5)
                 const newObj = {
                     label: el.NOMBRE,
-                    //CODPROV: el.CODPROV,
-
+                    codprop: el.CODPROV,
+                    idpob: idCity
                 }
                 obj = [...obj, newObj]
+                cities = obj
             });
-            setAllOptions(obj)
+            setOptions(cities)
+            setAllOptions(cities)
         }
     }
 
-    useEffect(() => {
-        modifyStates()
-    }, [data])
-
-
-    const onSearchChange = useCallback((searchValue) => {
+    const onSearchChange = (searchValue) => {
         setLoading(true);
         setOptions([]);
 
@@ -74,15 +56,12 @@ export default function WeatherSearch() {
                     option.label.toLowerCase().includes(searchValue.toLowerCase())
                 )
             );
-        }, 1200);
-    }, [data]);
+        }, 1500);
+    }
 
     useEffect(() => {
-        // Simulate initial load.
-        onSearchChange('');
-    }, [onSearchChange, data]);
-
-
+        modifyStates()
+    }, [cities])
 
     return (
         <>
@@ -90,9 +69,10 @@ export default function WeatherSearch() {
                 <EuiFlexItem className="weather-search__column">
                     <EuiSpacer />
                     <h3 className="subtitle">Selecciona una ciudad</h3>
+
                     <EuiComboBox
                         placeholder="Seleccionar ciudad"
-                        async
+                        async={true}
                         options={options}
                         selectedOptions={selectedOptions}
                         isLoading={isLoading}
@@ -101,11 +81,12 @@ export default function WeatherSearch() {
                         //onCreateOption={onCreateOption}
                         singleSelection={{ asPlainText: true }}
                     />
+
                 </EuiFlexItem>
                 <EuiFlexItem className="weather-search__column">
                     <EuiSpacer />
                     <h3 className="subtitle">Resultado</h3>
-                    <p className="text">Card con el resultado...</p>
+                    <ResultCard search={selectedOptions[0]} />
                 </EuiFlexItem>
             </EuiFlexGroup>
             <EuiSpacer />

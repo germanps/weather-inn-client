@@ -6,15 +6,11 @@ import Spinner from '../../components/Spinner'
 import "./Home.scss"
 
 export default function Home() {
-
-    //const { loading, data } = useFetch('provincias/08')
     //fetch for general weather
     const { loading, data } = useFetch('home')
     const { today, tomorrow } = !!data && data
-    //console.log(provincias);
     const { p: weatherToday } = !!today && today
     const { p: weatherTomorrow } = !!tomorrow && tomorrow
-
 
     return (
         <div className="home">
