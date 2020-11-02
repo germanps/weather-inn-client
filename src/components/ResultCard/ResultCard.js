@@ -9,8 +9,8 @@ import {
 import './ResultCard.scss'
 
 export default function ResultCard({ search }) {
-    const { label, codprop, idpob } = search ? search : {}
-    const { loading, data } = useFetch(`provincias/${codprop}/municipios/${idpob}`)
+    const { label, codprov, idpob } = search ? search : {}
+    const { loading, data } = useFetch(`provincias/${codprov}/municipios/${idpob}`)
 
     // const icons = [
     //     [  'cloudDrizzle' ],

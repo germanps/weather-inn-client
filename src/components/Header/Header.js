@@ -32,9 +32,9 @@ export default function Header() {
             <EuiHeaderSectionItem>
                 <EuiHeaderLinks aria-label="App navigation links example">
 
-                    <Link to={`/${auth.username}`}>
-                        {auth.username}
-                    </Link>
+                    {/* <Link to={`/${auth.username}`}> */}
+                    <span>{auth.username}</span>
+                    {/* </Link> */}
 
                 </EuiHeaderLinks>
             </EuiHeaderSectionItem>

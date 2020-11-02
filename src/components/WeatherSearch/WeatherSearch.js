@@ -30,7 +30,7 @@ export default function WeatherSearch() {
                 const idCity = el.CODIGOINE.substring(0, 5)
                 const newObj = {
                     label: el.NOMBRE,
-                    codprop: el.CODPROV,
+                    codprov: el.CODPROV,
                     idpob: idCity
                 }
                 obj = [...obj, newObj]
