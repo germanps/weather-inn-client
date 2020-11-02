@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import ResultCard from '../ResultCard'
 import { useFetch } from '../../hooks/useFetch'
 import { EuiFlexGroup, EuiFlexItem, EuiSpacer, EuiComboBox } from '@elastic/eui'
@@ -6,6 +6,7 @@ import './WeatherSearch.scss'
 let cities = []
 
 export default function WeatherSearch() {
+
     const { loading, data } = useFetch('municipios')
     if (!loading) {
         cities = data

@@ -1,9 +1,11 @@
 import React, { useEffect } from 'react'
 import { useFetch } from '../../hooks/useFetch'
+import { useMutation } from '@apollo/client'
+import { USERSEARCH } from '../../gql/userSearch'
+import { decodeToken, getToken } from '../../utils/token'
 import {
     EuiCard,
     EuiIcon,
-    EuiFlexGroup,
     EuiFlexItem,
 } from '@elastic/eui';
 import './ResultCard.scss'
@@ -11,6 +13,7 @@ import './ResultCard.scss'
 export default function ResultCard({ search }) {
     const { label, codprov, idpob } = search ? search : {}
     const { loading, data } = useFetch(`provincias/${codprov}/municipios/${idpob}`)
+    const [userSearch] = useMutation(USERSEARCH)
 
     // const icons = [
     //     [  'cloudDrizzle' ],
@@ -35,6 +38,31 @@ export default function ResultCard({ search }) {
     //             return icons[4]
     //     }
     // }
+
+    //saves search in DB
+    const saveSearch = async () => {
+        const newRegister = await label
+        if (!newRegister) return
+        try {
+            await userSearch({
+                variables: {
+                    input: {
+                        idUser: decodeToken(getToken('token')).id,
+                        label,
+                        codprov,
+                        idpob,
+                    }
+                }
+            })
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+
+    useEffect(() => {
+        saveSearch()
+    }, [search])
 
 
 
@@ -64,24 +92,15 @@ export default function ResultCard({ search }) {
                                     </div>
                                 }
                                 footer={
-
                                     <footer>Temperaturas
                                         <p>{`Máxima: ${data.temperaturas.max}º`}</p>
                                         <p>{`Mínima: ${data.temperaturas.min}º`}</p>
                                     </footer>
-
                                 }
-                            //description={<EuiIcon size="l" type="devToolsApp" />}
-
                             />
-
                         </EuiFlexItem>
-
                     )
             }
-            {/* <button
-                onClick={getWeatherIcon}
-            >get</button> */}
         </div>
     )
 }

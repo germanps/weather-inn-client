@@ -21,7 +21,6 @@ export const useFetch = (params) => {
     useEffect(() => {
 
         setState({ data: null, loading: true, error: null })
-        //console.log(`${BASE_URL}${params}`);
 
         fetch(`${BASE_URL}${params}`)
             .then(resp => resp.json())
