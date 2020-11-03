@@ -69,7 +69,7 @@ export default function ResultCard({ search }) {
                                 description={
 
                                     <span className="weather-inn-card__description">
-                                        <span className="weather-inn-card__description--icon"><WeatherIcons name={getItemIcon(data.stateSky.id)} size="2x" /></span>
+                                        <span className="weather-inn-card__description--icon"><WeatherIcons name={getItemIcon(data.stateSky.description)} size="2x" /></span>
                                         <span className="weather-inn-card__description--description">{data.stateSky.description}</span>
                                     </span>
 

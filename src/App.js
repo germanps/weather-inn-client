@@ -4,7 +4,7 @@ import client from "./config/apollo"
 import Auth from './pages/Auth'
 import Navigation from './routes/Navigation'
 import AuthContext from './context/AuthContext'
-import { getToken, decodeToken } from './utils/token'
+import { getToken, decodeToken, removeToken } from './utils/token'
 
 
 
@@ -19,7 +19,8 @@ export default function App() {
   }, [])
 
   const logout = () => {
-    console.log('cerrar sesión')
+    removeToken()
+    setAuth(null)
   }
 
   const setUser = user => setAuth(user)
