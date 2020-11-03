@@ -12,6 +12,7 @@ export default function WeatherSearch() {
         cities = data
     }
 
+
     const [allOptions, setAllOptions] = useState([]);
     const [selectedOptions, setSelected] = useState([]);
     const [isLoading, setLoading] = useState(false);
@@ -90,7 +91,6 @@ export default function WeatherSearch() {
                     <ResultCard search={selectedOptions[0]} />
                 </EuiFlexItem>
             </EuiFlexGroup>
-            <EuiSpacer />
         </>
     )
 }

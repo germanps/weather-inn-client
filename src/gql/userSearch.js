@@ -10,3 +10,14 @@ export const USERSEARCH = gql`
         }
     }
 `;
+
+export const GETUSERSEARCH = gql`
+    query getUserSearch($idUser: ID!) {
+        getUserSearch(idUser: $idUser){
+            idUser
+            label
+            codprov
+            idpob
+        }
+    }
+`;
