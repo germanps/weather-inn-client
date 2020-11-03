@@ -5,6 +5,7 @@ import { USERSEARCH } from '../../gql/userSearch'
 import { decodeToken, getToken } from '../../utils/token'
 import { getItemIcon } from '../../utils/utils'
 import WeatherIcons from 'react-weathericons'
+import PropTypes from 'prop-types'
 import {
     EuiCard,
     EuiFlexItem,
@@ -50,7 +51,7 @@ export default function ResultCard({ search }) {
             {
                 loading ?
                     (
-                        <h3 className="subtitle"></h3>
+                        <h3 className="sr-only">Elige una población en el buscador</h3>
                     ) : (
                         <EuiFlexItem>
                             <h3 className="subtitle">Resultado de búsqueda</h3>
@@ -88,4 +89,8 @@ export default function ResultCard({ search }) {
             }
         </div>
     )
+}
+
+ResultCard.propTypes = {
+    search: PropTypes.object,
 }

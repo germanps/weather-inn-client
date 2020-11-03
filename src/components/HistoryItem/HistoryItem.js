@@ -3,6 +3,7 @@ import { useFetch } from '../../hooks/useFetch'
 import Spinner from '../Spinner';
 import { getItemIcon } from '../../utils/utils'
 import WeatherIcons from 'react-weathericons'
+import PropTypes from 'prop-types'
 import './HistoryItem.scss'
 
 export default function HistoryItems({ searchItem }) {
@@ -34,3 +35,10 @@ export default function HistoryItems({ searchItem }) {
         </>
     )
 }
+
+
+HistoryItems.propTypes = {
+    weatherToday: PropTypes.object,
+}
+
+
