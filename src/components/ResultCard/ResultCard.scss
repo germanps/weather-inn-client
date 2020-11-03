@@ -1,8 +1,38 @@
 @import "../../scss/index.scss";
 
 .result-card{
-
+    max-width: 400px;
     .weather-inn-card{
         
-    }
+        &__header{
+            @include flex(100%, row, space-between, center);
+            &--title{
+                color: $action;
+                font-weight: bold;
+            }
+            &--degrees{
+                font-size: $font-size * 1.5;
+                font-weight: bold;
+                color: $action;
+            }
+        }
+        &__description {
+            &--icon{
+                margin-right: 1rem;
+                i{
+                    color: $font-light;
+                    background-color: $action;
+                    padding: 1rem;
+                    border-radius: 50%;
+                }
+            }
+        }
+        &__body{
+            &--degrees{
+                span:first-of-type{
+                    margin-right: 1rem;
+                }
+            }
+        }
+    }   
 }

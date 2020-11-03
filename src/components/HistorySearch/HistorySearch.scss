@@ -1,0 +1,11 @@
+@import "../../scss/index.scss";
+
+.history-search{
+    .subtitle{
+        @include subTitle($font-size * .9, $action, left, .5rem, bold)
+    }
+    .history-search-list{
+        margin-bottom: 2rem;
+    }
+    
+}

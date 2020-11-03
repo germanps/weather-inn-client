@@ -3,8 +3,8 @@ import { BASE_URL } from '../utils/constanst'
 
 export const useFetch = (params) => {
 
-    //cancelar subscripciones
-    //mantiene la referencia al componente siempre que esté montado 
+    //cancel subscriptions
+    //keep the reference to component when is mounted
     const isMounted = useRef(true)
 
     const [state, setState] = useState({ data: null, loading: true, error: null })

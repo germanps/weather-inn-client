@@ -1,11 +1,11 @@
-import React, { useCallback, useEffect, useState } from 'react'
+import React from 'react'
+import './HistorySearch.scss'
 import Spinner from '../../components/Spinner'
 import HistoryItem from '../HistoryItem'
 import { useQuery } from '@apollo/client'
 import { GETUSERSEARCH } from '../../gql/userSearch'
 import { decodeToken, getToken } from '../../utils/token'
 import {
-    EuiSpacer,
     EuiFlexGroup,
     EuiFlexItem,
 } from '@elastic/eui';
@@ -32,7 +32,7 @@ export default function HistorySearch() {
                     (
                         <EuiFlexGroup alignItems="center">
                             <EuiFlexItem>
-                                <EuiSpacer />
+                                <h2 className="subtitle">Últimas busquedas</h2>
                                 <ul className="history-search-list">
                                     {
                                         getUserSearch.map((search, index) => (

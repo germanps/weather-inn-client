@@ -5,7 +5,7 @@ import { getItemIcon } from '../../utils/utils'
 import WeatherIcons from 'react-weathericons'
 import './HistoryItem.scss'
 
-export default function ({ searchItem }) {
+export default function HistoryItems({ searchItem }) {
     const { loading, data } = useFetch(`provincias/${searchItem.codprov}/municipios/${searchItem.idpob}`)
 
     return (
@@ -17,15 +17,16 @@ export default function ({ searchItem }) {
                     ) :
                     (
                         <li className="history-item">
-                            <p>
-                                {data.municipio.NOMBRE}
-                                {data.stateSky.description}
-                                <WeatherIcons name={getItemIcon(data.stateSky.id)} size="2x" />
-                            </p>
-                            <p>
-                                {`Máxima: ${data.temperaturas.max}º`}
-                                {`Mínima: ${data.temperaturas.min}º`}
-                            </p>
+                            <div className="history-item__wrapper">
+                                <span className="history-item__wrapper--text city">{data.municipio.NOMBRE}</span>
+
+
+                                <span className="history-item__wrapper--text degrees">
+                                    <span className="history-item__wrapper--icon"><WeatherIcons name={getItemIcon(data.stateSky.id)} size="2x" /></span>
+                                    <span>{`Máx: ${data.temperaturas.max}º`}</span>
+                                    <span>{`Mín: ${data.temperaturas.min}º`}</span>
+                                </span>
+                            </div>
                         </li>
                     )
             }

@@ -8,5 +8,6 @@ export const ICONS = {
     46: "rain-mix",
     15: "storm-showers",
     17: "day-cloudy-high",
-    14: "rain"
+    14: "rain",
+    82: "fog"
 }

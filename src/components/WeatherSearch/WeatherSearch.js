@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import ResultCard from '../ResultCard'
+import HistorySearch from '../HistorySearch'
 import { useFetch } from '../../hooks/useFetch'
-import { EuiFlexGroup, EuiFlexItem, EuiSpacer, EuiComboBox } from '@elastic/eui'
+import { EuiFlexGroup, EuiFlexItem, EuiComboBox, EuiSpacer } from '@elastic/eui'
 import './WeatherSearch.scss'
 let cities = []
 
@@ -69,9 +70,7 @@ export default function WeatherSearch() {
         <>
             <EuiFlexGroup className="weather-search">
                 <EuiFlexItem className="weather-search__column">
-                    <EuiSpacer />
-                    <h3 className="subtitle">Selecciona una ciudad</h3>
-
+                    <h2 className="subtitle">Consulta el tiempo en tu ciudad</h2>
                     <EuiComboBox
                         placeholder="Seleccionar ciudad"
                         async={true}
@@ -80,15 +79,13 @@ export default function WeatherSearch() {
                         isLoading={isLoading}
                         onChange={onChange}
                         onSearchChange={onSearchChange}
-                        //onCreateOption={onCreateOption}
                         singleSelection={{ asPlainText: true }}
                     />
-
+                    <EuiSpacer />
+                    <ResultCard search={selectedOptions[0]} />
                 </EuiFlexItem>
                 <EuiFlexItem className="weather-search__column">
-                    <EuiSpacer />
-                    <h3 className="subtitle">Resultado</h3>
-                    <ResultCard search={selectedOptions[0]} />
+                    <HistorySearch />
                 </EuiFlexItem>
             </EuiFlexGroup>
         </>

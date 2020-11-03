@@ -3,13 +3,14 @@
 .general-forecast{
 
     &__column{
+        
+        .subtitle-low{
+            @include subTitle($font-size * .7, $danger, left, .5rem, bold)
 
-        .subtitle{
-            @include subTitle($font-size * .9, $action, left, .5rem, bold)
         }
         .text{
-            font-size: $font-size * .7;
-            line-height: 16px;
+            font-size: $font-size * .65;
+            line-height: 14px;
         }
     }
 }

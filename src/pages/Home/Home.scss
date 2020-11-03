@@ -1,14 +1,7 @@
 @import '../../scss/index.scss';
 
 .home{
-
-    .row-inn{
-        margin-bottom: 2rem;
-    }
-
-    .title{
-        font-size: $font-size;
-        line-height: 16px;
-        font-weight: bold;
+    .subtitle{
+        @include subTitle($font-size * .9, $action, left, .5rem, bold)
     }
 }
