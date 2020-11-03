@@ -30,6 +30,7 @@ export default function WeatherSearch() {
         if (cities) {
             let obj = []
             cities.forEach(el => {
+                if (!el.CODIGOINE) return
                 const idCity = el.CODIGOINE.substring(0, 5)
                 const newObj = {
                     label: el.NOMBRE,

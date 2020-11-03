@@ -25,7 +25,7 @@
             @include flex(100%, column, flex-start, flex-start);
             @media(min-width: $media-small) {
                 flex-direction: row;
-                justify-content: space-between;
+                //justify-content: space-between;
                 align-items: center;
             }
             &--icon{
