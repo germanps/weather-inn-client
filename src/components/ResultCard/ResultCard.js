@@ -3,6 +3,8 @@ import { useFetch } from '../../hooks/useFetch'
 import { useMutation } from '@apollo/client'
 import { USERSEARCH } from '../../gql/userSearch'
 import { decodeToken, getToken } from '../../utils/token'
+import { getItemIcon } from '../../utils/utils'
+import WeatherIcons from 'react-weathericons'
 import {
     EuiCard,
     EuiIcon,
@@ -14,30 +16,6 @@ export default function ResultCard({ search }) {
     const { label, codprov, idpob } = search ? search : {}
     const { loading, data } = useFetch(`provincias/${codprov}/municipios/${idpob}`)
     const [userSearch] = useMutation(USERSEARCH)
-
-    // const icons = [
-    //     [  'cloudDrizzle' ],
-    //     [ 'cloudSunny' ],
-    //     [ 'cloudStormy' ],
-    //     [  'snowflake' ],
-    //     [  'currency' ],
-    // ]
-
-    // const getWeatherIcon = () => {
-    //     const weather = data.stateSky;
-    //     switch (true) {
-    //         case weather <= 10:
-    //             return icons[0]
-    //         case weather <= 20:
-    //             return icons[1]
-    //         case weather <= 30:
-    //             return icons[2]
-    //         case weather <= 40:
-    //             return icons[3]
-    //         default:
-    //             return icons[4]
-    //     }
-    // }
 
     //saves search in DB
     const saveSearch = async () => {
@@ -84,7 +62,8 @@ export default function ResultCard({ search }) {
                                 children={
                                     <div className="weather-inn-card__body">
                                         <div>
-                                            {`Hoy: ${data.stateSky.description}`}<span><EuiIcon size="m" type="devToolsApp" /></span>
+                                            {`Hoy: ${data.stateSky.description}`}
+                                            <span><WeatherIcons name={getItemIcon(data.stateSky.id)} size="2x" /></span>
                                         </div>
                                         <div>
                                             {`Temperatura: ${data.temperatura_actual}º`}

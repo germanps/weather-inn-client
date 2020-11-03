@@ -1,3 +1,5 @@
+import { ICONS } from './constanst'
+
 export function getDay() {
     let today = new Date()
     const dd = String(today.getDate()).padStart(2, '0')
@@ -6,4 +8,10 @@ export function getDay() {
 
     today = mm + '/' + dd + '/' + yyyy;
     return today
+}
+
+export const getItemIcon = state => {
+    const icon = ICONS[state]
+    if (!icon) return ""
+    return icon
 }
