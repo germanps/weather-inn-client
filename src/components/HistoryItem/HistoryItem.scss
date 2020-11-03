@@ -1,0 +1,46 @@
+@import "../../scss/index.scss";
+
+.history-item{
+    font-size: $font-size * .8;
+    background-color:$action;
+    margin-bottom: .2rem;
+    padding: .65rem;
+    box-sizing: border-box;
+    max-width: 400px;
+    box-shadow: 0 2px 2px -1px rgba(152, 162, 179, 0.3), 0 1px 5px -2px rgba(152, 162, 179, 0.3);
+    border: 1px solid $action;
+    
+    &__wrapper{
+        @include flex(100%, column, flex-start, flex-start);
+        @media(min-width: $media-small) {
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+        &--text{
+            width: 180px;
+            max-width: 100%;
+            color: $font-light;
+            
+            &.city{
+                margin-bottom: .5rem;
+                @media(min-width: $media-small) {
+                    width: calc(100% - 140px);
+                }
+                @media(min-width: $media-small) {
+                    margin-bottom: 0;
+                }
+            }
+            &.degrees{
+                @include flex(140px, row, space-between, center);
+            }
+        }
+        &--icon{
+            margin-left: 0;
+            i{
+                font-size: 1rem !important;
+                color: $font-light;
+            }
+        }
+    }
+}

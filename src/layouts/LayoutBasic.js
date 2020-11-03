@@ -1,5 +1,6 @@
 import React from 'react'
 import Header from '../components/Header'
+import PropTypes from 'prop-types'
 import './LayoutBasic.scss'
 import {
     EuiPage,
@@ -24,4 +25,8 @@ export default function LayoutBasic(props) {
             </EuiPage>
         </>
     )
+}
+
+LayoutBasic.propTypes = {
+    children: PropTypes.object,
 }

@@ -1,5 +1,7 @@
 @import '../../scss/index.scss';
 
 .home{
-    
+    .subtitle{
+        @include subTitle($font-size * .9, $action, left, .5rem, bold)
+    }
 }

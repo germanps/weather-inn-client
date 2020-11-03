@@ -13,7 +13,7 @@ import {
 
 export default function Header() {
     const { auth } = useAuth()
-    console.log(auth);
+    //console.log(auth);
     return (
         <EuiHeader className="header">
             <EuiHeaderSectionItem border="right">
@@ -33,7 +33,7 @@ export default function Header() {
                 <EuiHeaderLinks aria-label="App navigation links example">
 
                     <Link to={`/${auth.username}`}>
-                        {auth.username}
+                        <span>{auth.username}</span>
                     </Link>
 
                 </EuiHeaderLinks>

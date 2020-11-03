@@ -1,0 +1,73 @@
+@import "../../scss/index.scss";
+
+.result-card{
+    max-width: 400px;
+    .weather-inn-card{
+        
+        &__header{
+            @include flex(100%, column, flex-start, flex-start);
+            @media(min-width: $media-small) {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+            &--title{
+                color: $action;
+                font-weight: bold;
+            }
+            &--degrees{
+                font-size: $font-size * 1.5;
+                font-weight: bold;
+                color: $action;
+            }
+        }
+        &__description {
+            @include flex(100%, column, flex-start, flex-start);
+            @media(min-width: $media-small) {
+                flex-direction: row;
+                //justify-content: space-between;
+                align-items: center;
+            }
+            &--icon{
+                margin-right: 1rem;
+                margin-bottom: 1rem;
+                @media(min-width: $media-small) {
+                    margin-bottom: 0;
+                }
+                i{
+                    color: $font-light;
+                    background-color: $action;
+                    padding: 1rem;
+                    border-radius: 50%;
+                }
+            }
+        }
+        &__body{
+            @include flex(100%, column, flex-start, flex-start);
+            &--degrees{
+                margin-bottom: .2rem;
+                @include flex(100%, column, flex-start, flex-start);
+                @media(min-width: $media-small) {
+                    flex-direction: row;
+                    justify-content: flex-start;
+                    align-items: center;
+                }
+                span{
+                    &.max{
+                        color: $bronze;
+
+                    }
+                    &.min{
+                        color: $high-blue; 
+                    }
+                    &:first-of-type{
+                        margin-right: 1rem;
+                    }
+                }
+            }
+            &--forecast{
+                color: $action;
+            }
+        }
+    }   
+}
