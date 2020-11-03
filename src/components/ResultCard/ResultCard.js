@@ -17,6 +17,8 @@ export default function ResultCard({ search }) {
     const { label, codprov, idpob } = search ? search : {}
     const { loading, data } = useFetch(`provincias/${codprov}/municipios/${idpob}`)
 
+
+    console.log(data);
     const [userSearch] = useMutation(USERSEARCH)
 
     //saves search in DB
@@ -77,9 +79,10 @@ export default function ResultCard({ search }) {
                                 children={
                                     <span className="weather-inn-card__body">
                                         <span className="weather-inn-card__body--degrees">
-                                            <span>{`Máxima: ${data.temperaturas.max}º`}</span>
-                                            <span>{`Mínima: ${data.temperaturas.min}º`}</span>
+                                            <span className="max">{`Máxima: ${data.temperaturas.max}º`}</span>
+                                            <span className="min">{`Mínima: ${data.temperaturas.min}º`}</span>
                                         </span>
+                                        <span className="weather-inn-card__body--forecast">Probabilidad de lluvia: {data.proximos_dias[0].prob_precipitacion[0]}%</span>
                                     </span>
                                 }
                             />
