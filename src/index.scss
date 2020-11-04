@@ -5,6 +5,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: $background-default;
+  font-size: $font-size;
 }
 
 code {
@@ -12,11 +13,16 @@ code {
     monospace;
 }
 
+.container{
+  max-width: 1200px;
+  margin: auto;
+}
+
 //Form globals
 .submit-error{
   color: $danger;
   margin-top: 1rem;
-  font-size: $font-size * .8;
+  font-size: $font-size * .9;
 }
 
 
