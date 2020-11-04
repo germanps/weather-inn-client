@@ -51,7 +51,7 @@ export default function LoginForm() {
     })
     return (
         <div className="login-form">
-            <p className="register-form__title">Login</p>
+            <h2 className="register-form__title">Login</h2>
             <EuiForm component="form" onSubmit={formik.handleSubmit}>
                 <EuiFormRow helpText="Ingresar email">
                     <EuiFieldText

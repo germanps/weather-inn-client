@@ -8,7 +8,7 @@ import './HistoryItem.scss'
 
 export default function HistoryItems({ searchItem }) {
     const { loading, data } = useFetch(`provincias/${searchItem.codprov}/municipios/${searchItem.idpob}`)
-    console.log(data);
+    //console.log(data);
     return (
         <>
             {

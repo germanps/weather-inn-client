@@ -46,7 +46,7 @@ export default function RegisterForm(props) {
 
     return (
         <div className="register-form">
-            <p className="register-form__title">Formulario de registro</p>
+            <h2 className="register-form__title">Formulario de registro</h2>
             <EuiForm component="form" onSubmit={formik.handleSubmit}>
                 <EuiFormRow helpText="Ingresar nombre de usuario">
                     <EuiFieldText
