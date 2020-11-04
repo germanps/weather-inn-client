@@ -16,7 +16,6 @@ import './ResultCard.scss'
 export default function ResultCard({ search }) {
     const { label, codprov, idpob } = search ? search : {}
     const { loading, data } = useFetch(`provincias/${codprov}/municipios/${idpob}`)
-    console.log(data);
 
     const [userSearch] = useMutation(USERSEARCH)
 
@@ -39,7 +38,6 @@ export default function ResultCard({ search }) {
             console.log(error);
         }
     }
-
 
     useEffect(() => {
         saveSearch()
