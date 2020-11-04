@@ -41,9 +41,7 @@ export default function App() {
   return (
     <ApolloProvider client={client}>
       <AuthContext.Provider value={authData}>
-        <div className="container">
-          {!auth ? <Auth /> : <Navigation />}
-        </div>
+        {!auth ? <Auth /> : <Navigation />}
       </AuthContext.Provider>
     </ApolloProvider>
   );

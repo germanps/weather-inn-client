@@ -6,7 +6,15 @@
     .euiHeaderSectionItem {
 
         .title-logo{
-
+            a{
+                color: $action;
+                font-weight: bold;
+                font-size: $font-size * 1.1;
+                figure{
+                    margin-right: 1rem;
+                }
+            }
+        
         }
 
         &::after{

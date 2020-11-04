@@ -32,8 +32,9 @@ export default function Header() {
                             alt="logo weather-inn"
                             url={logo}
                         />
+
+                        Weather Inn
                     </Link>
-                    Weather Inn
                 </h1>
             </EuiHeaderSectionItem>
 

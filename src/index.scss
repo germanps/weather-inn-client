@@ -17,6 +17,9 @@ code {
   max-width: 1200px;
   margin: auto;
 }
+a{
+  color: $action;
+}
 
 //Form globals
 .submit-error{
