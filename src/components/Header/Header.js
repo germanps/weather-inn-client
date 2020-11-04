@@ -17,11 +17,10 @@ export default function Header() {
     const { auth, logout } = useAuth()
     const history = useHistory()
     const client = useApolloClient()
-    //console.log(auth);
     const onLogout = () => {
+        history.push("/")
         client.clearStore()
         logout()
-        history.push("/")
     }
     return (
         <EuiHeader className="header">

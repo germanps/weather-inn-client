@@ -19,8 +19,10 @@ export default function App() {
   }, [])
 
   const logout = () => {
-    removeToken()
-    setAuth(null)
+    setTimeout(() => {
+      removeToken()
+      setAuth(null)
+    }, 500);
   }
 
   const setUser = user => setAuth(user)

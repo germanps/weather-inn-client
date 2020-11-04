@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
     EuiButton,
     EuiFieldText,
@@ -6,11 +6,18 @@ import {
     EuiFormRow,
     EuiFieldPassword,
 } from '@elastic/eui'
+import { useMutation } from '@apollo/client'
+import { UPDATE_USER } from '../../gql/user'
+import { decodeToken, getToken } from '../../utils/token'
+import { useHistory } from 'react-router-dom'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
 import './UserSettings.scss'
 
 export default function UserSettings() {
+    const [error, setError] = useState(null)
+    const [updateUser] = useMutation(UPDATE_USER)
+    const history = useHistory()
     const formik = useFormik({
         initialValues: initialFormValues(),
         validationSchema: Yup.object({
@@ -19,8 +26,31 @@ export default function UserSettings() {
             newPassword: Yup.string().required(true).oneOf([Yup.ref("repeatNewPassword")]),
             repeatNewPassword: Yup.string().required(true).oneOf([Yup.ref("newPassword")]),
         }),
-        onSubmit: (formData) => {
-            console.log(formData);
+        onSubmit: async (formData) => {
+            try {
+                const result = await updateUser({
+                    variables: {
+                        input: {
+                            idUser: decodeToken(getToken('token')).id,
+                            email: formData.email,
+                            currentPassword: formData.currentPassword,
+                            newPassword: formData.newPassword,
+                        }
+                    }
+                })
+                const { data } = result
+
+                if (!data.updateUser) {
+                    console.log(data.updateUser);
+                    setError(true)
+                } else {
+                    history.push('/')
+                }
+
+
+            } catch (error) {
+                console.log(error);
+            }
         }
     })
     return (
@@ -73,7 +103,7 @@ export default function UserSettings() {
                 >
                     Enviar
                 </EuiButton>
-
+                {error ? <p className="error">Ha habido un error</p> : null}
             </EuiForm>
         </div>
     )

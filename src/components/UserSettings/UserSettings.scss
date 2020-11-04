@@ -1,5 +1,8 @@
 @import "../../scss/index.scss";
 
 .user-settings{
-
+    .error{
+        color: $danger;
+        margin: 1rem 0;
+    }
 }
