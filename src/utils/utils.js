@@ -12,6 +12,6 @@ export function getDay() {
 
 export const getItemIcon = state => {
     const icon = ICONS[state]
-    if (!icon) return "day-sunny"
+    if (!icon) return "Cubierto"
     return icon
 }

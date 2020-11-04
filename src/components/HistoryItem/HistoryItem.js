@@ -8,7 +8,6 @@ import './HistoryItem.scss'
 
 export default function HistoryItems({ searchItem }) {
     const { loading, data } = useFetch(`provincias/${searchItem.codprov}/municipios/${searchItem.idpob}`)
-
     return (
         <>
             {
@@ -23,7 +22,7 @@ export default function HistoryItems({ searchItem }) {
 
 
                                 <span className="history-item__wrapper--text degrees">
-                                    <span className="history-item__wrapper--icon"><WeatherIcons name={getItemIcon(data.stateSky.id)} size="2x" /></span>
+                                    <span className="history-item__wrapper--icon"><WeatherIcons name={getItemIcon(data.stateSky.description)} size="2x" /></span>
                                     <span className="max">{`Máx: ${data.temperaturas.max}º`}</span>
                                     <span className="min">{`Mín: ${data.temperaturas.min}º`}</span>
                                 </span>

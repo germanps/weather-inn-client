@@ -1,7 +1,9 @@
 import React from 'react'
 import logo from '../../assets/png/weather_inn-logo.png'
-import { Link } from 'react-router-dom'
+import { useApolloClient } from '@apollo/client'
+import { Link, useHistory } from 'react-router-dom'
 import { useAuth } from '../../hooks/useAuth'
+import { EuiIcon } from '@elastic/eui'
 
 import './Header.scss'
 import {
@@ -12,8 +14,14 @@ import {
 } from '@elastic/eui';
 
 export default function Header() {
-    const { auth } = useAuth()
-    //console.log(auth);
+    const { auth, logout } = useAuth()
+    const history = useHistory()
+    const client = useApolloClient()
+    const onLogout = () => {
+        history.push("/")
+        client.clearStore()
+        logout()
+    }
     return (
         <EuiHeader className="header">
             <EuiHeaderSectionItem border="right">
@@ -33,7 +41,13 @@ export default function Header() {
                 <EuiHeaderLinks aria-label="App navigation links example">
 
                     <Link to={`/${auth.username}`}>
+
                         <span>{auth.username}</span>
+                        <EuiIcon
+                            onClick={onLogout}
+                            type="exit"
+                        />
+
                     </Link>
 
                 </EuiHeaderLinks>

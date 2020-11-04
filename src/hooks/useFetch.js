@@ -2,6 +2,8 @@ import { useState, useEffect, useRef } from 'react'
 import { BASE_URL } from '../utils/constanst'
 
 export const useFetch = (params) => {
+    // const checkParams = params.indexOf("undefined");
+    // if (checkParams !== -1) return
 
     //cancel subscriptions
     //keep the reference to component when is mounted
@@ -10,7 +12,7 @@ export const useFetch = (params) => {
     const [state, setState] = useState({ data: null, loading: true, error: null })
 
     useEffect(() => {
-        //cancelar subscripción (cuando el componente se desmonta)
+        //keep the reference to component when is mounted
         return () => {
             //cleanup
             isMounted.current = false
@@ -26,7 +28,7 @@ export const useFetch = (params) => {
             .then(resp => resp.json())
             .then(data => {
 
-                //llamar al componente(setState) de forma segura únicamente cuando esté montado
+                //call to component(setState) safety
                 if (isMounted.current) {
                     setState({
                         loading: false,
