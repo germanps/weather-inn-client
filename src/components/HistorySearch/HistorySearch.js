@@ -20,7 +20,6 @@ export default function HistorySearch() {
 
     if (loading) return null
     const { getUserSearch } = data
-    console.log(getUserSearch);
 
     return (
         <div className="history-search">
