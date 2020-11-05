@@ -6,7 +6,8 @@ import WeatherIcons from 'react-weathericons'
 import PropTypes from 'prop-types'
 import './HistoryItem.scss'
 
-export default function HistoryItems({ searchItem }) {
+export default function HistoryItems({ searchItem = {} }) {
+
     const { loading, data } = useFetch(`provincias/${searchItem.codprov}/municipios/${searchItem.idpob}`)
     return (
         <>
