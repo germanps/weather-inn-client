@@ -6,5 +6,8 @@
         .subtitle{
             @include subTitle($font-size * .9, $action, left, .5rem, bold)
         }
+        .euiFormControlLayoutCustomIcon--clickable{
+            height: 24px;
+        }
     }
 }

@@ -13,7 +13,6 @@ export default function WeatherSearch() {
         cities = data
     }
 
-
     const [allOptions, setAllOptions] = useState([]);
     const [selectedOptions, setSelected] = useState([]);
     const [isLoading, setLoading] = useState(false);
@@ -26,7 +25,6 @@ export default function WeatherSearch() {
 
     //Modify objects to keep shape required in Elastic ComboBox
     const modifyStates = () => {
-        //console.log('modifyStates', cities.length);
         if (cities) {
             let obj = []
             cities.forEach(el => {
@@ -67,6 +65,15 @@ export default function WeatherSearch() {
         modifyStates()
     }, [cities])
 
+    const callToResult = () => {
+        //Make sure prop is set
+        if (selectedOptions[0]) {
+            return (
+                <ResultCard search={selectedOptions[0]} />
+            )
+        }
+    }
+
     return (
         <>
             <EuiFlexGroup className="weather-search">
@@ -83,7 +90,10 @@ export default function WeatherSearch() {
                         singleSelection={{ asPlainText: true }}
                     />
                     <EuiSpacer />
-                    <ResultCard search={selectedOptions[0]} />
+                    {
+                        //render Card Component conditionally
+                        callToResult()
+                    }
                 </EuiFlexItem>
                 <EuiFlexItem className="weather-search__column">
                     <HistorySearch />

@@ -1,7 +1,7 @@
 import { ApolloClient, InMemoryCache, createHttpLink } from "@apollo/client";
 
 const link = createHttpLink({
-    uri: "http://localhost:4000/",
+    uri: "https://thawing-peak-39577.herokuapp.com/",
 });
 
 const client = new ApolloClient({

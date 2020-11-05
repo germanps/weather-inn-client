@@ -20,7 +20,7 @@ export default function Auth() {
     const [showLogin, setShowLogin] = useState(true);
 
     return (
-        <EuiPage className="auth">
+        <EuiPage className="auth container">
             <EuiPageBody component="div">
                 <h1 className="title-logo">
                     <EuiImage

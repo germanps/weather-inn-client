@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
     EuiButton,
     EuiFieldText,
@@ -15,6 +15,7 @@ import "./RegisterForm.scss"
 
 export default function RegisterForm(props) {
     const { setShowLogin } = props
+    const [error, setError] = useState('')
     const [register] = useMutation(REGISTER)
 
     const formik = useFormik({
@@ -39,6 +40,7 @@ export default function RegisterForm(props) {
                 console.log(result);
             } catch (error) {
                 console.log(error)
+                setError(error.message)
             }
         }
     })
@@ -104,7 +106,7 @@ export default function RegisterForm(props) {
                 >
                     Registrarse
                 </EuiButton>
-
+                {error && <p className="submit-error">{error}</p>}
             </EuiForm>
         </div>
     )

@@ -25,14 +25,14 @@
             &.city{
                 margin-bottom: .5rem;
                 @media(min-width: $media-small) {
-                    width: calc(100% - 140px);
+                    width: calc(100% - 152px);
                 }
                 @media(min-width: $media-small) {
                     margin-bottom: 0;
                 }
             }
             &.degrees{
-                @include flex(140px, row, space-between, center);
+                @include flex(152px, row, space-between, center);
             }
         }
         &--icon{

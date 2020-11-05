@@ -32,7 +32,11 @@ export default function HistorySearch() {
                     (
                         <EuiFlexGroup alignItems="center">
                             <EuiFlexItem>
-                                <h2 className="subtitle">Últimas busquedas</h2>
+                                {getUserSearch.length <= 0 ?
+                                    <span className="sr-only">Historial de búsquedas, elige una opción</span>
+                                    :
+                                    <h2 className="subtitle">Últimas busquedas</h2>
+                                }
                                 <ul className="history-search-list">
                                     {
                                         getUserSearch.map((search, index) => (

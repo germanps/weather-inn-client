@@ -7,7 +7,7 @@ This is ###WeatherInn, a spa about weather in the country
 This proyect has two branches: master and develop. **master** contains the realise of the application and **develop** contains the test of the use cases.
 
 ## Demo
-If you want to see the demo of this proyect deployed, you can visit [Demo of the proyect](https://germanps.com/)
+If you want to see the demo of this proyect deployed, you can visit [Demo of the proyect](https://weather-inn.netlify.app)
 
 ## Dependencies
 If you have special requirements, you have to list it step by step.
@@ -22,6 +22,8 @@ If you have special requirements, you have to list it step by step.
 * formik
 * yup
 * lodash
+* Enzyme (testing) --dev
+* Enzyme-to-json (testing) --dev
 * Install all dependencies by yarn
 
 ## Available Scripts
@@ -36,10 +38,14 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
+## Testing
+To install Enzyme go to https://enzymejs.github.io/enzyme/
+
 ### `yarn test`
 
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+
 
 ### `yarn build`
 

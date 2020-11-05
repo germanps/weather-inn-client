@@ -24,6 +24,6 @@ export default function GeneralForecast({ weatherToday, weatherTomorrow }) {
 }
 
 GeneralForecast.propTypes = {
-    weatherToday: PropTypes.array,
-    weatherTomorrow: PropTypes.array
+    weatherToday: PropTypes.array.isRequired,
+    weatherTomorrow: PropTypes.array.isRequired
 }

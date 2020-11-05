@@ -14,7 +14,7 @@ export default function LayoutBasic(props) {
     return (
         <>
             <Header />
-            <EuiPage>
+            <EuiPage className="container">
                 <EuiPageBody component="div">
                     <EuiPageContent>
                         <EuiPageContentBody>
