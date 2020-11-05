@@ -7,7 +7,7 @@ This is ###WeatherInn, a spa about weather in the country
 This proyect has two branches: master and develop. **master** contains the realise of the application and **develop** contains the test of the use cases.
 
 ## Demo
-If you want to see the demo of this proyect deployed, you can visit [Demo of the proyect](https://germanps.com/)
+If you want to see the demo of this proyect deployed, you can visit [Demo of the proyect](https://weather-inn.netlify.app)
 
 ## Dependencies
 If you have special requirements, you have to list it step by step.
