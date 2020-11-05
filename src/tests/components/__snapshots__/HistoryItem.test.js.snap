@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test in <HistoryItem /> should show the component correctly 1`] = `
+<Fragment>
+  <Spinner />
+</Fragment>
+`;
