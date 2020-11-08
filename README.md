@@ -25,6 +25,7 @@ If you have special requirements, you have to list it step by step.
 * Enzyme (testing) --dev
 * Enzyme-to-json (testing) --dev
 * Install all dependencies by yarn
+* Is very important you must use 12.18.1 node version (node-sass)
 
 ## Available Scripts
 
